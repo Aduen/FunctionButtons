@@ -37,6 +37,13 @@ bool FunctionButtons::func_state(uint8_t btnid){
     return btns[btnid].fstate;
 }
 
+void FunctionButtons::reset_fbutton(uint8_t btnid)
+{
+	btns[btnid].fstate = false;
+	btns[btnid].pstate = true;
+	digitalWrite(btns[btnid].led_pin, LOW);
+}
+
 uint8_t FunctionButtons::add_fbutton(uint8_t btn, uint8_t led){
     btns[n_btns].btn_pin = btn;
     btns[n_btns].led_pin = led;

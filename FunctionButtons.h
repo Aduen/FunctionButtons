@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Aduen. All rights reserved.
 //
 
-#ifndef TASST_REV4_5V_FunctionButtons_h
-#define TASST_REV4_5V_FunctionButtons_h
+#ifndef FunctionButtons_h
+#define FunctionButtons_h
 
 #include <Arduino.h>
 #include "utility/FastDelegate.h"
@@ -33,6 +33,7 @@ public:
     FunctionButtons();
     
     uint8_t add_fbutton(uint8_t btn, uint8_t led);
+	void reset_fbutton(uint8_t btnid);
     
     bool func_state(uint8_t btnid);
 
