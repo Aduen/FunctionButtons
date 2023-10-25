@@ -10,10 +10,8 @@
 #define FunctionButtons_h
 
 #include <Arduino.h>
-#include "utility/FastDelegate.h"
 
-using namespace fastdelegate;
-typedef FastDelegate2<uint8_t,uint8_t> btncall_delegate;
+typedef void (*btncall_delegate)(uint8_t, uint8_t);
 
 typedef struct {
     uint8_t btn_pin;

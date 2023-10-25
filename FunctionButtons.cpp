@@ -14,6 +14,7 @@ FunctionButtons::FunctionButtons(){
 
 void FunctionButtons::run(){
     for (uint8_t i = 0; i < n_btns; ++i) {
+        // debounce over time
         bool bs = digitalRead(btns[i].btn_pin);
         
         if(bs != btns[i].pstate){
@@ -41,7 +42,7 @@ void FunctionButtons::reset_fbutton(uint8_t btnid)
 {
 	btns[btnid].fstate = false;
 	btns[btnid].pstate = true;
-	digitalWrite(btns[btnid].led_pin, LOW);
+	digitalWrite(btns[btnid].led_pin, HIGH);
 }
 
 uint8_t FunctionButtons::add_fbutton(uint8_t btn, uint8_t led){
@@ -50,9 +51,9 @@ uint8_t FunctionButtons::add_fbutton(uint8_t btn, uint8_t led){
     btns[n_btns].fstate = false;
     btns[n_btns].pstate = true;
     
-    pinMode(btn, INPUT_PULLUP);
+    pinMode(btn, INPUT_PULLDOWN);
     pinMode(led, OUTPUT);
-    digitalWrite(led, LOW);
+    digitalWrite(led, HIGH);
     
     n_btns++;
     
